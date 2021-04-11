@@ -9,19 +9,19 @@ body{
 }
 
 .header{
-    background-color: rgb(33, 30, 30);
+    background-color: rgb(34, 31, 31);
     color: white;
     /* height: 100px; */
     /* overflow coloca a altura do header automatico de acordo com os itens que estão dentro do elemento  */
     overflow: auto; 
     border-bottom: 3px solid rgb(240, 90, 35);
     padding: 28px 0 12px 0;
-    position: fixed;
-    width: 100%;
-    top: 0;
+    position: fixed; 
+    width: 100%; 
+    top: 0; 
 }
 
-.header a {
+ a {
     text-decoration: none;
     color: white;
 }
@@ -59,7 +59,7 @@ li{
 
 .banner{
    text-align: center;
-   background-image: url(imgs/banner-fundo-big.jpeg);
+   background-image: url(../imgs/banner-fundo-big.jpeg);
    background-color: #b1b1b1;
    background-repeat: no-repeat;
    height: 300px;
@@ -173,4 +173,39 @@ cursor: pointer;
 
 .imgPreservar img{
     padding-left: 100px;
+}
+
+/* estilo do login */
+.pag_login{
+    background-color: rgb(221, 210, 210);
+    padding:230px 370px;
+}
+
+.box_login{
+    border-radius: 10px;
+    padding: 40px 20px ;
+    background-color: rgb(33, 30, 30);
+    color: white;
+    margin: auto;
+    text-align: center;
+    box-shadow: 7px 7px 6px 1px rgb(75, 73, 73);
+}
+
+.box_login input{
+     margin-top: 20px;
+}
+
+.box_login h1{
+    margin: 0;
+    
+}
+
+.box_login button{
+    font-size: 15px;
+    margin-top: 25px;
+    padding: 3px 50px;
+    border-radius: 10px;
+    background-color: orangered;
+    color: white;
+    text-shadow: 1px 1px  1px rgb(28, 28, 29);
 }

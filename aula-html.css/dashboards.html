@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboards</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+
+
+    <style>
+      .grafico{
+         background-color: rgb(56, 54, 54);
+         width: 80%;
+         overflow: auto;
+         margin: auto;
+      }
+      .dashboard{
+          padding-bottom: 75px;
+          text-align: center;
+          background-color:rgb(33, 32, 32) ;
+      }
+      .dashboard h1{
+          margin: 0;
+          padding: 40px 0;
+          color : orangered;
+      }
+
+    </style>
+
+
+
+
+</head>
+
+
+<body>
+    <div class="dashboard">
+        <div class="container">
+            <h1>Monitoramento de temperatura</h1>
+            <div class="legenda"></div>
+            <div class="grafico">
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    var ctx = document.getElementById('myChart');
+
+// ao criar um new Chart, colocamos ->
+// (contexto, { type, data e options} )
+var meuGrafico = new Chart(ctx, {
+    // TYPE -> qual o tipo do gráfico? será um gráfico de barras? linhas? define aqui
+    type: 'line',
+
+    // DATA -> os dados renderizados no gráfico:
+    data: {
+        // Informações em Eixo X
+        labels: ["10 mnts", "20 mnts", "30 mnts", "40 mnts", "50 mnts", "60 mnts"],
+        // Datasets -> grupos de dados!
+        datasets: [
+        // Primeiro dataset    
+        {
+            // Qual o título deste dataset?
+            label: "temperatura freezer 1",
+            // Dados? Lembre-se, respectivos a labels.
+            data: [-11, -17, -15, -11, -18, -18.5],
+            // expessura da linha
+            borderWidth: 5,
+            // cor da linha - em rgba, a é a opacidade.
+            // 1 = 100% // 0.5 = 50%
+            borderColor: 'rgba(20, 20, 20, .7)',
+            // cor de "fundo" dos dados na tela. transparent = sem cor.
+            backgroundColor: 'transparent',
+        },
+
+        // Segundo dataset
+        {
+            // igual o anterior. Mas, aqui, type line
+            type: 'line',
+            label: "alarme de instabilidade",
+            data: [-17, -17, -17, -17, -17, -17],
+            borderWidth: 1,
+            borderColor: '#FAFE0B',
+            backgroundColor: 'transparent'
+        },
+        
+
+        {
+            // igual o anterior. Mas, aqui, type line
+            type: 'line',
+            label: "alarme de instabilidade",
+            data: [-12, -12, -12, -12, -12, -12],
+            borderWidth: 1,
+            borderColor: '#FAFE0B',
+            backgroundColor: 'transparent'
+        },
+
+        {
+            // igual o anterior. Mas, aqui, type line
+            type: 'line',
+            label: "Temperatura critica",
+            data: [-19, -19, -19, -19, -19, -19],
+            borderWidth: 1,
+            borderColor: 'red',
+            backgroundColor: 'transparent'
+        },
+        
+
+        {
+            // igual o anterior. Mas, aqui, type line
+            type: 'line',
+            label: "Temperatura critica",
+            data: [-10, -10, -10, -10, -10, -10],
+            borderWidth: 1,
+            borderColor: 'red',
+            backgroundColor: 'transparent'
+        }
+        ]
+    },
+
+    
+    
+    // OPTIONS -> Opções globais
+    options: {
+        
+        title: {
+            // mostrar titulo?
+            display: true,
+            // tamanho do texto
+            fontSize: 20,
+            // texto no titulo
+            text: "Temperatura Freezer",
+            // onde? right? left? top?
+            position: 'top',
+        },
+        legend: {
+            // mostrar legenda?
+            display: true,
+            // ao contrario? (dataset 1 depois de 2)
+            reverse: true,
+            // onde?
+            position: 'right'
+
+        },
+        layout: {
+        padding: {
+            // padding do grafico, pode add right e bottom também
+            left: 25,
+            top: 100,
+            
+        },
+       
+    }
+    }
+})
+
+// mudando cor de fonte de tudo
+Chart.defaults.global.defaultFontColor = "#F74418";
+</script>
